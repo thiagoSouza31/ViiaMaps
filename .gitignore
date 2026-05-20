@@ -1,0 +1,17 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Segredos — NUNCA commitar
+**/application-secrets.properties
+**/.env
+**/.env.local
+**/.env.production
