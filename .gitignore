@@ -1,3 +1,9 @@
+# Claude Code
+.claude/
+
+# Arquivos de rascunho
+*.txt
+
 # Sistema operacional
 .DS_Store
 Thumbs.db
