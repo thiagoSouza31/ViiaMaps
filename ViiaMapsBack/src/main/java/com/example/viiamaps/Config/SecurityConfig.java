@@ -41,7 +41,11 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         // Permite qualquer origem sem restrição de credenciais (cookies)
         // A autenticação é feita via header Authorization, não por cookies
-        config.setAllowedOriginPatterns(List.of("*"));
+        config.setAllowedOriginPatterns(List.of(
+                "http://localhost:3000",
+                "https://viia-maps.vercel.app",
+                "https://viia-maps-*.vercel.app"
+        ));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         config.setAllowCredentials(false);
