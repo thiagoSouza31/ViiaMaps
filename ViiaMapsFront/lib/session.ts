@@ -19,6 +19,8 @@ function isTokenExpired(token: string): boolean {
 export function getSessionUser(): SessionUser | null {
   if (typeof window === "undefined") return null
 
+  window.localStorage.removeItem("token")
+
   const remember = window.localStorage.getItem(REMEMBER_KEY) === "true"
   const raw = remember
     ? window.localStorage.getItem(SESSION_KEY)
