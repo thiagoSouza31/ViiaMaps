@@ -1,6 +1,6 @@
 import { Place, AvaliacaoResponse } from "@/lib/types"
 
-const API_URL = "http://localhost:8081/api"
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8081/api"
 
 function getToken(): string | null {
   return localStorage.getItem("token")
