@@ -99,6 +99,7 @@ export function MapHeader({ searchQuery, setSearchQuery, onSearch, isSearching }
         <DropdownMenuContent align="end" className="w-56 z-[100]">
           <div className="flex items-center gap-2 p-2">
             <Avatar className="size-10">
+              <AvatarImage src={user?.avatar ?? ""} alt="Foto do usuário" />
               <AvatarFallback className="bg-primary text-primary-foreground">
                 {user?.name?.charAt(0).toUpperCase() ?? "U"}
               </AvatarFallback>
