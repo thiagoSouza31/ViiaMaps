@@ -65,7 +65,6 @@ export default function PerfilPage() {
       if (currentUser) {
         saveSessionUser({ ...currentUser, name: result.nome, email: result.email, token: result.token })
       }
-      localStorage.setItem("token", result.token)
       setProfileSuccess("Perfil atualizado com sucesso!")
       setTimeout(() => setProfileSuccess(""), 3000)
     } catch (err: unknown) {

@@ -3,7 +3,16 @@ import { Place, AvaliacaoResponse } from "@/lib/types"
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8081/api"
 
 function getToken(): string | null {
-  return localStorage.getItem("token")
+  try {
+    const remember = localStorage.getItem("viia_remember") === "true"
+    const raw = remember
+      ? localStorage.getItem("viia_session")
+      : sessionStorage.getItem("viia_session")
+    if (!raw) return null
+    return (JSON.parse(raw) as { token?: string }).token ?? null
+  } catch {
+    return null
+  }
 }
 
 function authHeaders(): HeadersInit {
@@ -101,9 +110,7 @@ export async function loginUsuario(email: string, senha: string): Promise<LoginR
     body: JSON.stringify({ email, senha }),
   })
   if (!response.ok) throw new Error("Email ou senha incorretos.")
-  const data: LoginResponse = await response.json()
-  localStorage.setItem("token", data.token)
-  return data
+  return response.json() as Promise<LoginResponse>
 }
 
 // ========================

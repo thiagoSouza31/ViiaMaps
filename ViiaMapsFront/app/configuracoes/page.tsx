@@ -61,7 +61,6 @@ export default function ConfiguracoesPage() {
       await excluirConta()
       // Limpa toda a sessão e configurações locais
       clearSession()
-      localStorage.removeItem("token")
       localStorage.removeItem("viia_settings")
       window.location.href = "/"
     } catch (err: unknown) {

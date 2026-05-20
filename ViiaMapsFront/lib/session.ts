@@ -63,5 +63,6 @@ export function clearSession() {
   if (typeof window === "undefined") return
   window.localStorage.removeItem(SESSION_KEY)
   window.localStorage.removeItem(REMEMBER_KEY)
+  window.localStorage.removeItem("token")
   window.sessionStorage.removeItem(SESSION_KEY)
 }
